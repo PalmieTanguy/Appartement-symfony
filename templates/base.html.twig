@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PalmieTanguy - {% block title %}Welcome!{% endblock %}</title>
+      
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <style>
+            #logo
+                {
+                    width: 70px;
+                    height: 70px;
+                    margin-top:-15px;
+                    margin-bottom:-15px;
+                    margin-right: 3px;
+                    border-radius: 100%;
+                }
+                 body{
+                    background-image: url(img/bg.png);
+                    background-size: cover;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -99;
+                    top: 0;
+                    left: 0;
+                    }
+        </style>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{ path('homepage')}}"><img id="logo" src="/img/dwd.jpg"> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('homepage')}}"><h4>Accueil </h4></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a href="#" class="nav-link"><h4>Mon compte</h4></a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+        {% block body %}{% endblock %}
+        <script src="/js/jquerry.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootsrap.min.js"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
