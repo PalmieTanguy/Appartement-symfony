@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{ad.title}}
+{% endblock %}
+
+{% block body %}
+<div class="a-title" style="background-image:url({{ad.coverImage}})">
+    <div class="container" style="color:#FFA2F6;">
+        <h1>{{ad.title}}</h1>
+        <p>{{ad.introduction}}</p>
+        <p class="h2">
+            <strong>{{ad.rooms}} chambres</strong>{{ad.price}}&euro;
+        </p>
+        <button href="#" type="button" class="btn btn-primary">Réserver !</button>
+    </div>
+</div>
+
+<div class="container" style="color:#FFA2F6;">
+    <div class="row">
+        <div class="col-md-8 mb-3" style="color:white;">
+            {{ad.content | raw}}
+        </div>    
+        <div class="col">
+            <div class="row">
+                <div class="col-4">
+                    <img src="https://lorempixel.com/output/technics-q-c-64-64-4.jpg" alt="Avatar de Josepf">
+                </div>
+                <div class="col">
+                    <h3>Joseph Dupont</h3>
+                    <span class="badge badge-primary">3 annonces</span>
+                </div>
+            </div>
+            <p style="color:white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat hic et maxime molestias odit fugiat commodi harum esse ad vel.</p>
+            <p style="color:white;">Harum, fugit. Assumenda iure, impedit aperiam quas repellendus doloremque reprehenderit nostrum velit dicta et ad quos consectetur possimus odio laborum.</p>
+            <p style="color:white;">Ipsa doloribus accusantium architecto explicabo, tempore numquam, qui ullam laudantium, non magnam adipisci odio. Blanditiis illo assumenda itaque soluta iure.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
