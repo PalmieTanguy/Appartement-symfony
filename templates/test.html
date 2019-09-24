@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="button">@</div>
+</body>
+</html>
+<style>
+.button
+{
+    padding:5px;
+    background-color:black;
+    color:white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.button:hover::before
+{
+    position: absolute;
+    content:'';
+    background-color:white;
+    color:black;
+    display: block;
+    padding:15px;
+}
+</style>
+<!--<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").before("<p class='before'>Hello world!</p>");
+  });
+});
+</script>
+</head>
+<body>
+
+<button>Insert content before each p element</button>
+
+<p class="texte">@</p>
+</body>
+</html>
+<style>
+.texte
+{
+padding:5px;
+    background-color:black;
+    color:white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);}
+.before
+{
+	position: absolute;
+    z-index:2;
+    top:47%;
+    left:42%;
+    transform: translate(-50%,-50%);
+    background-color:white;
+    color:black;
+    display: block;
+    padding:15px;
+    border:1px solid black;
+}
+</style>-->
