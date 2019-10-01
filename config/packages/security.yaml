@@ -5,10 +5,10 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        in_memory: { memory: null }
         in_database:
             entity:
-                class: App\Entity_User
+                class: App\Entity\User
                 property: email
     firewalls:
         dev:
@@ -17,11 +17,19 @@ security:
         main:
             anonymous: true
 
+            provider: in_database
+
+            form_login:
+                login_path: account_login
+                check_path: account_login
+
             # activate different ways to authenticate
+            #http_basic: true
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
             # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            # form_login: true
+
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
