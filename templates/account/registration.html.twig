@@ -8,11 +8,42 @@
 <div class="formulaire_register" style="color:pink;">
     {{ form_start(form) }}
     {{form_widget(form)}}
-    <button type="submit" class="btn btn-success">Confirmation de l'inscription</button>
+    <div class="alert alert-dismissible alert-info"id="mdpok" style="display:inline;color:green">Les mots de passes sont identiques <i class="fas fa-check-circle"></i></div>
+    <div class="alert alert-dismissible alert-danger" id="mdpno" style="display:inline;color:red;">Les mots de passes ne sont pas identiques <i class="fas fa-times"></i></div>
+   <br>
+    <button type="submit" class="btn btn-success" style="margin-top:20px;">Confirmation de l'inscription</button>
     {{ form_end(form) }}
-</div>
-</div>
+    
+    <input type="text" onkeydown="mdpNOTNULL()">
 
+</div>
+</div>
+<script>
+function mdpNOTNULL(){
+    var value = document.getElementById("registration_passwordConfirm").value;
+      alert("You pressed a key inside the input field");
+    if(value!=null)
+    {
+        motdepasseverif();
+    }
+}
+function motdepasseverif(){
+    var element1 = document.getElementById("registration_hash").value;
+    var element2 = document.getElementById("registration_passwordConfirm").value;
+    console.log(element1); //output messages to the console
+    console.log(element2); //output messages to the console
+
+    if(element1==element2 ){
+    document.getElementById("mdpok").style.display = "inline";
+    document.getElementById("mdpno").style.display = "none";
+    }
+    else{
+    document.getElementById("mdpok").style.display = "none";
+    document.getElementById("mdpno").style.display = "inline";
+    }
+}
+
+</script>
 
 
 
