@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 style="color:#EFCFFB;"><u>Inscription:</u></h1>
+<div class="formulaire_register" style="color:pink;">
+    {{ form_start(form) }}
+    {{form_widget(form)}}
+    <button type="submit" class="btn btn-success">Confirmation de l'inscription</button>
+    {{ form_end(form) }}
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

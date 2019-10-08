@@ -2,25 +2,35 @@
 
 {% block title %}Connexion au site{% endblock %}
 
+
 {% block body %}
+<style>
+.lien_login{
+    font-size:12px;
+    color:blue;
+    text-decoration:none;
+}
+
+</style>
 <div class="container" style="margin-top:6%;">
 <div class="row">
     <div class="col-md-3">&nbsp;</div>
-        <div class="col-md-6" style="background-color:#F1FFFE;border:solid 8px #CBCBCB;border-radius: 40px;;">
-            <h1 style="color:#EFCFFB;"><u>Connectez-vous:</u></h1>
-            {% if hasError %}
+        <div class="col-md-6" style="background-color:#F1FFFE;border-radius: 20px;">
+            <h1 style="color:#D09AFD;"><u>Connectez-vous:</u></h1>
+           {% if hasError %}
                 <div class="alert alert-danger" style="border-radius:4px">Login ou mot de passe invalide</div>
             {% endif %}
 
                 <form action="{{path('account_login')}}" method="post" style="margin-bottom:20px;">
                     <div class="form-group">
-                        <label for="email" style="color:pink;">Email</label>
-                        <input type="text" name="_username" id="email" class="form-control" placeholder="Adresse email..." required>
+                        <label for="email" style="color:pink;"><b>Email</b></label>
+                        <input type="text" name="_username" id="email" class="form-control" placeholder="Adresse email..." required value="{{username}}">
                     </div>
                     <div class="form-group">
-                        <label for="password"style="color:pink;">Mot de passe</label>
+                        <label for="password"style="color:pink;"><b>Mot de passe</b></label>
                         <input type="password" name="_password" id="password" class="form-control" placeholder="Mot de passe" required>
                     </div>
+                    <a class="lien_login" href="{{ path("account_register")}}">Pas de compte? Créer vous-en un <i class="far fa-smile-beam"></i></a>
                     <div class="form-group"></div>
                         <button type="submit" class="btn btn-success" style="border-radius: 4px">Connexion</button>
                     </div>
@@ -29,8 +39,7 @@
     </div>
 </div>
 <style>
-    footer
-    {
+    footer{
         position:absolute;
         bottom:0;
         left:0;

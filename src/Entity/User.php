@@ -3,14 +3,20 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ * fields={"email"},
+ * message="Adresse mail déjà utilisé sur un autre compte"
+ * )
  */
 class User implements UserInterface
 {
@@ -23,21 +29,26 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom de famille")
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Assert\Email(message="Veuillez renseigner un mail valide")
+
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(message="Veuillez donner unr URL valide pour votre avatar")
      */
     private $picture;
 
@@ -45,14 +56,20 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $hash;
+/** 
+ * @Assert\EqualTo(propertyPath="hash",message="Vous n'avez pas entré le même mot de passe")
+ */
+    public $passwordConfirm;
 
     /**
      * @ORM\Column(type="string", length=255)
-     */
+     * @Assert\Length(min=10, minMessage="Votre intro doit faire minimum 10 caractères")
+     */    
     private $introduction;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min=100, minMessage="Votre intro doit faire minimum 100 caractères")
      */
     private $description;
 
