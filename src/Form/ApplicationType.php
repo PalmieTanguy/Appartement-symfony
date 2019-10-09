@@ -18,6 +18,17 @@ class ApplicationType extends AbstractType{
                 'placeholder' => $placeholder
             ]
         ],$option);
+
+    }
+    protected function getConfigurationPassWord($label, $placeholder,$password,$option=[])
+    {
+        return array_merge(['label' => $label,
+            'attr' => [
+                'placeholder' => $placeholder,
+                 'onkeyup' => $password
+            ]
+        ],$option);
+     
     }
 }
 ?>

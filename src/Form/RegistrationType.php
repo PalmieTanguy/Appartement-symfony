@@ -21,12 +21,12 @@ class RegistrationType extends ApplicationType
             ->add('email', EmailType::class, $this->getConfiguration("Email", "Entrez votre adresse email..."))
             ->add('picture', TextType::class, $this->getConfiguration("Photo de profil", "URL de votre avartar..."))
             ->add('hash',PasswordType::class, $this->getConfiguration("Mot de passe", "Entrez un mot de passe solide"))
-            ->add('passwordConfirm',PasswordType::class, $this->getConfiguration("Confirmer le mot de passe", "Veuillez confirmer votre mot de passe"))
+            ->add('passwordConfirm',PasswordType::class, $this->getConfigurationPassWord("Confirmer le mot de passe", "Veuillez confirmer votre mot de passe","mdpNOTNULL()"))
             ->add('introduction',TextType::class, $this->getConfiguration("Introduction", "Présentez-vous rapidement..."))
             ->add('description',TextareaType::class, $this->getConfiguration("Description détaillé", "Présentez-vous de manière détaillé..."))
         ;
     }
-
+//onkeydown="mdpNOTNULL()"
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
