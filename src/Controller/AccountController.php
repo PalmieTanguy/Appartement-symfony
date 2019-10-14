@@ -85,9 +85,20 @@ class AccountController extends AbstractController
             $manager->flush();
             
             $this->addFlash('success', "Les données du profil ont été enregistrée avec ssuccès !");
+            return $this->redirectToRoute("account_login");
+
                 }
         return $this->render('account/profile.html.twig',[
             'form'=>$form->createView()
         ]);
+    }
+    /**
+     * Modif mdp
+     *
+     * @Route("/account/password-update", name="account_password")
+     * @return Reponse
+     */
+    public function updatePassword(){
+        return $this->render('account/password.html.twig');
     }
 }
